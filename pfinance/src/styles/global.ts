@@ -37,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
 
  body{
 
-    background: var(---background) ;
+    background: var(--background) ;
 
     //esto es para que las fuente se vena mas definidas en navegadores cuando usan webkit
     -webkit-font-smoothing: antialiased;
