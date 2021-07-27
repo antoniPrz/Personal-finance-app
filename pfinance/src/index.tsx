@@ -4,10 +4,45 @@ import { App } from './App';
 import {createServer, Model} from 'miragejs';
 
 createServer({ 
-
-
   models: {
     transaction : Model,
+  },
+
+  seeds(server){
+    server.db.loadData({
+
+      transactions:[
+        {
+          id: 1,
+          title:'sueldo del mes',
+          type: 'deposit',
+          category: 'trabajos',
+          value: 510000,
+          createdAt: new Date ('2021-05-30 09:00:00')
+
+        },
+        {
+          id: 2,
+          title:'venta de pantalla',
+          type: 'deposit',
+          category: 'ventas',
+          value: 50000,
+          createdAt: new Date ('2021-08-30 09:00:00')
+
+        },
+        {
+          id: 3,
+          title:'arriendo',
+          type: 'outcome',
+          category: 'tfijos casa',
+          value: 200000,
+          createdAt: new Date ('2021-05-12 09:00:00')
+
+        }
+
+      ],
+    })
+
   },
 
 
@@ -17,7 +52,7 @@ createServer({
 
     this.get('/transactions', () => {
 
-      return this.schema.all('transantion')
+      return this.schema.all('transaction')
        
       
     })

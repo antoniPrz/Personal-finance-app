@@ -57,6 +57,8 @@ return(
            alt="fechar modal" 
             />
            </button> 
+
+           {/* componente container estilizado con form */}
         <Container onSubmit={handleCreateNewTransaction}>
 
         <h2>Registrar Movimiento</h2>
