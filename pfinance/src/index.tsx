@@ -33,7 +33,7 @@ createServer({
         {
           id: 3,
           title:'arriendo',
-          type: 'outcome',
+          type: 'retiro',
           category: 'tfijos casa',
           value: 200000,
           createdAt: new Date ('2021-05-12 09:00:00')
