@@ -12,43 +12,35 @@ import { Container } from "./styles";
 
 export function Sumary() {
 
-const data = useContext(TransactionsContext);
+    const transactions = useContext(TransactionsContext);
+
+    console.log(transactions);
 
 
 
 
-    return ( <Container> 
-            {/* <TransactionsContext.Consumer>   forma antigua ***
+    return (<Container>
 
-                {(data)=> {
-                 console.log(data)
-
-                 return <></>
-                }}
-
-                
-            </TransactionsContext.Consumer> */}
-
-             <div>
-                 <header>
-                     <p>Entradas</p>
-                     <img src={incomeImg} alt="Entradas<" />
-                 </header>
-                 <strong>$ 1000,00</strong>
-             </div>
-             <div>
-                 <header>
-                     <p>Salidas</p>
-                     <img src={outcomeImg} alt="Salidas" />
-                 </header>
-                 <strong>$ -500,00</strong>
-             </div>
-             <div className="total">
-                 <header>
-                     <p>Total</p>
-                     <img src={total} alt="Total" />
-                 </header>
-                 <strong>$ 500,00</strong>
-             </div>
-            </Container> );
+        <div>
+            <header>
+                <p>Entradas</p>
+                <img src={incomeImg} alt="Entradas<" />
+            </header>
+            <strong>$ 1000,00</strong>
+        </div>
+        <div>
+            <header>
+                <p>Salidas</p>
+                <img src={outcomeImg} alt="Salidas" />
+            </header>
+            <strong>$ -500,00</strong>
+        </div>
+        <div className="total">
+            <header>
+                <p>Total</p>
+                <img src={total} alt="Total" />
+            </header>
+            <strong>$ 500,00</strong>
+        </div>
+    </Container>);
 }

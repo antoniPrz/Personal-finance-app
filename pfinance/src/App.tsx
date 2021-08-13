@@ -5,38 +5,44 @@ import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header/Index";
 import { GlobalStyle } from "./styles/global";
 import { NewTransactionModal } from './components/NewTransactionModal/Index';
-import { TransactionsContext } from './TransactionsContext';
+import { TransactionProvider } from './TransactionsContext';
+
+
+
+
 
 Modal.setAppElement('#root');
 
 export function App() {
 
 
-  const  [isNewTransactionModalOpen , setIsNewTransactionModalOpen] = useState(false);
+  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
 
-  function handleOpenNewTransactionModal(){
 
-      setIsNewTransactionModalOpen(true);
+  function handleOpenNewTransactionModal() {
+
+    setIsNewTransactionModalOpen(true);
   }
 
-  function handleCloseNewTransactionModal(){
-      setIsNewTransactionModalOpen(false);
+  function handleCloseNewTransactionModal() {
+    setIsNewTransactionModalOpen(false);
   }
 
   // funcion como propiedad para abrir el modal onOpenNewTransactionModal 
 
 
   return (
-    < TransactionsContext.Provider value={[]}>
-    <Header onOpenNewTransactionModal = {handleOpenNewTransactionModal}/>
-    <Dashboard/>
-    <NewTransactionModal 
-     isOpen = {isNewTransactionModalOpen}
-     onRequestClose = {handleCloseNewTransactionModal}
-    />
+    < TransactionProvider>
+      <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+      <Dashboard />
+      <NewTransactionModal
+        isOpen={isNewTransactionModalOpen}
+        onRequestClose={handleCloseNewTransactionModal}
+      />
 
-    <GlobalStyle />
-   </ TransactionsContext.Provider>
+      <GlobalStyle />
+    </TransactionProvider>
+
   );
 }
 
