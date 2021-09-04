@@ -1,42 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
-import {createServer, Model} from 'miragejs';
+import { createServer, Model } from 'miragejs';
 
-createServer({ 
+createServer({
   models: {
-    transaction : Model,
+    transaction: Model,
   },
 
-  seeds(server){
+  seeds(server) {
     server.db.loadData({
 
-      transactions:[
+      transactions: [
         {
           id: 1,
-          title:'sueldo del mes',
+          title: 'sueldo del mes',
           type: 'deposit',
           category: 'trabajos',
           value: 510000,
-          createdAt: new Date ('2021-05-30 09:00:00')
+          createdAt: new Date('2021-05-30 09:00:00')
 
         },
         {
           id: 2,
-          title:'venta de pantalla',
+          title: 'venta de pantalla',
           type: 'deposit',
           category: 'ventas',
           value: 50000,
-          createdAt: new Date ('2021-08-30 09:00:00')
+          createdAt: new Date('2021-08-30 09:00:00')
 
         },
         {
           id: 3,
-          title:'arriendo',
+          title: 'arriendo',
           type: 'retiro',
-          category: 'tfijos casa',
+          category: ' gastos fijos-casa',
           value: 200000,
-          createdAt: new Date ('2021-05-12 09:00:00')
+          createdAt: new Date('2021-05-12 09:00:00')
 
         }
 
@@ -47,21 +47,21 @@ createServer({
 
 
   //rutas 
-  routes(){
-    this.namespace ='api';
+  routes() {
+    this.namespace = 'api';
 
     this.get('/transactions', () => {
 
       return this.schema.all('transaction')
-       
-      
+
+
     })
 
     this.post('/transactions', (schema, request) => {
 
-      const data =  JSON.parse(request.requestBody)
+      const data = JSON.parse(request.requestBody)
 
-      return schema.create('transaction',data)
+      return schema.create('transaction', data)
 
     })
 
@@ -74,7 +74,7 @@ createServer({
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
